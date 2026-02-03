@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GASTRO 130 Digital Menu</title>
+
+    <!-- Preload critical resources for faster loading -->
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="preload" href="images/Breakfast (1).webp" as="image" />
     <link rel="stylesheet" href="style.css" />
 
     <!-- PWA -->
@@ -14,10 +18,10 @@
     <header>GASTRO 130 Restaurant & Bar 24/7</header>
 
     <div class="categories" id="categories">
-      <button class="active" onclick="showMenu('Full Menu', this)">
-        Full Menu
+      <button class="active" onclick="showMenu('Breakfast', this)">
+        Breakfast
       </button>
-      <button onclick="showMenu('Breakfast', this)">Breakfast</button>
+
       <button onclick="showMenu('GASTRO Signature', this)">
         GASTRO Signature
       </button>
@@ -36,210 +40,16 @@
       <button onclick="showMenu('Drinks', this)">Drinks</button>
     </div>
 
-    <!-- Full Menu Section kk-->
-    <div class="menu-image full-menu active">
-      <!-- Cover Pages -->
-      <img src="images/Menu-Cover.webp" loading="lazy" alt="Full Menu Cover" />
-
-      <!-- Breakfast -->
-      <img
-        src="images/Breakfast (1).webp"
-        loading="lazy"
-        alt="Breakfast Menu 1"
-      />
-      <img
-        src="images/Breakfast (2).webp"
-        loading="lazy"
-        alt="Breakfast Menu 2"
-      />
-
-      <!-- GASTRO Signature -->
-      <img
-        src="images/Gastro-Signature.webp"
-        loading="lazy"
-        alt="GASTRO Signature Menu"
-      />
-
-      <!-- Snack & Appetizers -->
-      <img
-        src="images/Snacks (1).webp"
-        loading="lazy"
-        alt="Snack & Appetizers Menu 1"
-      />
-      <img
-        src="images/Snacks (2).webp"
-        loading="lazy"
-        alt="Snack & Appetizers Menu 2"
-      />
-      <img
-        src="images/Appetizers (1).webp"
-        loading="lazy"
-        alt="Snack & Appetizers Menu 3"
-      />
-      <img
-        src="images/Appetizers (2).webp"
-        loading="lazy"
-        alt="Snack & Appetizers Menu 4"
-      />
-
-      <!-- Salad Selection -->
-      <img
-        src="images/Salads (1).webp"
-        loading="lazy"
-        alt="Salad Selection Menu 1"
-      />
-      <img
-        src="images/Salads (2).webp"
-        loading="lazy"
-        alt="Salad Selection Menu 2"
-      />
-
-      <!-- Japanese Selection -->
-      <img
-        src="images/Japanese-selection (1).webp"
-        loading="lazy"
-        alt="Japanese Selection Menu 1"
-      />
-      <img
-        src="images/Japanese-selection (2).webp"
-        loading="lazy"
-        alt="Japanese Selection Menu 2"
-      />
-
-      <!-- Burger Selection -->
-      <img
-        src="images/Burgers.webp"
-        loading="lazy"
-        alt="Burger Selection Menu"
-      />
-
-      <!-- Wrap-Sandwich-Toasts -->
-      <img
-        src="images/Wrap-Sandwiches-toasts.webp"
-        loading="lazy"
-        alt="Wrap-Sandwich-Toasts Menu"
-      />
-
-      <!-- Pizza Selection -->
-      <img
-        src="images/Pizza (1).webp"
-        loading="lazy"
-        alt="Pizza Selection Menu 1"
-      />
-      <img
-        src="images/Pizza (2).webp"
-        loading="lazy"
-        alt="Pizza Selection Menu 2"
-      />
-
-      <!-- Pasta -->
-      <img src="images/Pastas (1).webp" loading="lazy" alt="Pasta Menu 1" />
-      <img src="images/Pastas (2).webp" loading="lazy" alt="Pasta Menu 2" />
-
-      <!-- Steak Selection -->
-      <img src="images/Steaks.webp" loading="lazy" alt="Steak Selection Menu" />
-
-      <!-- Main Courses -->
-      <img
-        src="images/Main-Courses (1).webp"
-        loading="lazy"
-        alt="Main Courses Menu 1"
-      />
-      <img
-        src="images/Main-Courses (2).webp"
-        loading="lazy"
-        alt="Main Courses Menu 2"
-      />
-
-      <!-- Asian Main Courses -->
-      <img
-        src="images/Asian-main-courses (1).webp"
-        loading="lazy"
-        alt="Asian Main Courses Menu 1"
-      />
-      <img
-        src="images/Asian-main-courses (2).webp"
-        loading="lazy"
-        alt="Asian Main Courses Menu 2"
-      />
-      <img
-        src="images/Asian-main-courses (3).webp"
-        loading="lazy"
-        alt="Asian Main Courses Menu 3"
-      />
-      <img
-        src="images/Asian-main-courses (4).webp"
-        loading="lazy"
-        alt="Asian Main Courses Menu 4"
-      />
-      <img
-        src="images/Asian-main-courses (5).webp"
-        loading="lazy"
-        alt="Asian Main Courses Menu 5"
-      />
-      <img
-        src="images/Asian-cuisin-side-dishes.webp"
-        loading="lazy"
-        alt="Asian Side Dishes"
-      />
-
-      <!-- Soups -->
-      <img src="images/Soups.webp" loading="lazy" alt="Soups Menu" />
-
-      <!-- Desserts -->
-      <img src="images/desserts.webp" loading="lazy" alt="Desserts Menu" />
-
-      <!-- Promotions -->
-      <img src="images/happy-hour.webp" loading="lazy" alt="Happy Hour" />
-      <img src="images/lady-night.webp" loading="lazy" alt="Lady Night" />
-      <img
-        src="images/cocktails-night.webp"
-        loading="lazy"
-        alt="Cocktail Night"
-      />
-      <img
-        src="images/chicken-beer-set-HP.webp"
-        loading="lazy"
-        alt="Chicken and Beer HP"
-      />
-
-      <!-- Drinks -->
-      <img
-        src="images/drink-menu-cover.webp"
-        loading="lazy"
-        alt="Drinks Menu Cover"
-      />
-      <img src="images/Drink (1).webp" loading="lazy" alt="Drinks Menu 1" />
-      <img src="images/Drink (2).webp" loading="lazy" alt="Drinks Menu 2" />
-      <img src="images/Drink (3).webp" loading="lazy" alt="Drinks Menu 3" />
-      <img src="images/Drink (4).webp" loading="lazy" alt="Drinks Menu 4" />
-      <img src="images/Drink (5).webp" loading="lazy" alt="Drinks Menu 5" />
-      <img src="images/Drink (6).webp" loading="lazy" alt="Drinks Menu 6" />
-      <img src="images/Drink (7).webp" loading="lazy" alt="Drinks Menu 7" />
-      <img src="images/Drink (8).webp" loading="lazy" alt="Drinks Menu 8" />
-      <img src="images/Drink (9).webp" loading="lazy" alt="Drinks Menu 9" />
-      <img src="images/Drink (10).webp" loading="lazy" alt="Drinks Menu 10" />
-      <img src="images/Drink (11).webp" loading="lazy" alt="Drinks Menu 11" />
-      <img src="images/Drink (12).webp" loading="lazy" alt="Drinks Menu 12" />
-      <img src="images/Drink (13).webp" loading="lazy" alt="Drinks Menu 13" />
-      <img src="images/Drink (14).webp" loading="lazy" alt="Drinks Menu 14" />
-      <img src="images/Drink (15).webp" loading="lazy" alt="Drinks Menu 15" />
-      <img src="images/Drink (16).webp" loading="lazy" alt="Drinks Menu 16" />
-
-      <!-- End Page -->
-      <img src="images/Back-Cover.webp" loading="lazy" alt="Full Menu End" />
-    </div>
-
     <!-- Breakfast Section -->
-    <div class="menu-image breakfast">
+    <div class="menu-image breakfast active">
       <img
         src="images/Breakfast (1).webp"
-        loading="lazy"
+        loading="eager"
         alt="Breakfast Menu 1"
       />
       <img
         src="images/Breakfast (2).webp"
-        loading="lazy"
+        loading="eager"
         alt="Breakfast Menu 2"
       />
     </div>
@@ -480,7 +290,7 @@
         });
 
         // Convert category name to valid CSS class
-        const className = category.toLowerCase().replace(/[^a-z0-9]/g, "-");
+        const className = category.toLowerCase().replace(/\s+/g, "-");
         const menuSection = document.querySelector(".menu-image." + className);
         if (menuSection) {
           menuSection.classList.add("active");
@@ -488,9 +298,22 @@
         button.classList.add("active");
       }
 
+      // Register service worker for offline support
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js");
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("sw.js").catch(() => {});
+        });
       }
+
+      // Initialize breakfast menu on load
+      window.addEventListener("DOMContentLoaded", () => {
+        const breakfastSection = document.querySelector(
+          ".menu-image.breakfast",
+        );
+        if (breakfastSection) {
+          breakfastSection.classList.add("active");
+        }
+      });
     </script>
   </body>
 </html>

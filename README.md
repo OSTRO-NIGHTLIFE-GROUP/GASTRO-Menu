@@ -1,1 +1,1 @@
-# OSTRO-Menu
+# GASTRO-Menu

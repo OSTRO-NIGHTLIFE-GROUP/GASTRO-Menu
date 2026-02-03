@@ -18,26 +18,26 @@
     <header>GASTRO 130 Restaurant & Bar 24/7</header>
 
     <div class="categories" id="categories">
-      <button class="active" onclick="showMenu('Breakfast', this)">
+      <button class="active" onclick="showMenu('breakfast', this)">
         Breakfast
       </button>
 
-      <button onclick="showMenu('GASTRO Signature', this)">
+      <button onclick="showMenu('gastro-signature', this)">
         GASTRO Signature
       </button>
-      <button onclick="showMenu('Appetizers', this)">Appetizers</button>
-      <button onclick="showMenu('Salad', this)">Salad</button>
-      <button onclick="showMenu('Japanese Selection', this)">
+      <button onclick="showMenu('appetizers', this)">Appetizers</button>
+      <button onclick="showMenu('salad', this)">Salad</button>
+      <button onclick="showMenu('japanese-selection', this)">
         Japanese Selection
       </button>
-      <button onclick="showMenu('Burger', this)">Burger-Pizza-Wrap</button>
-      <button onclick="showMenu('Pastas', this)">Pastas</button>
-      <button onclick="showMenu('Steak', this)">Steak</button>
-      <button onclick="showMenu('Main Courses', this)">Main Courses</button>
-      <button onclick="showMenu('Soups', this)">Soups</button>
-      <button onclick="showMenu('Desserts', this)">Desserts</button>
-      <button onclick="showMenu('Promotion', this)">Promotion</button>
-      <button onclick="showMenu('Drinks', this)">Drinks</button>
+      <button onclick="showMenu('burger', this)">Burger-Pizza-Wrap</button>
+      <button onclick="showMenu('pastas', this)">Pastas</button>
+      <button onclick="showMenu('steak', this)">Steak</button>
+      <button onclick="showMenu('main-courses', this)">Main Courses</button>
+      <button onclick="showMenu('soups', this)">Soups</button>
+      <button onclick="showMenu('desserts', this)">Desserts</button>
+      <button onclick="showMenu('promotion', this)">Promotion</button>
+      <button onclick="showMenu('drinks', this)">Drinks</button>
     </div>
 
     <!-- Breakfast Section -->
@@ -280,7 +280,8 @@
         categoriesContainer.scrollLeft = scrollLeft - walk;
       });
 
-      function showMenu(category, button) {
+      function showMenu(categoryClass, button) {
+        // Remove active class from all sections and buttons
         document.querySelectorAll(".menu-image").forEach((section) => {
           section.classList.remove("active");
         });
@@ -289,11 +290,14 @@
           btn.classList.remove("active");
         });
 
-        // Convert category name to valid CSS class
-        const className = category.toLowerCase().replace(/\s+/g, "-");
-        const menuSection = document.querySelector(".menu-image." + className);
+        // Show selected menu section
+        const menuSection = document.querySelector(
+          ".menu-image." + categoryClass,
+        );
         if (menuSection) {
           menuSection.classList.add("active");
+        } else {
+          console.error("Menu section not found:", categoryClass);
         }
         button.classList.add("active");
       }

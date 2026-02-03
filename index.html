@@ -6,9 +6,14 @@
     <title>GASTRO 130 Digital Menu</title>
 
     <!-- Preload critical resources for faster loading -->
-    <link rel="preload" href="style.css" as="style" />
+    <link
+      rel="preload"
+      href="style.css"
+      as="style"
+      onload="this.rel = 'stylesheet'"
+    />
     <link rel="preload" href="images/Breakfast (1).webp" as="image" />
-    <link rel="stylesheet" href="style.css" />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
 
     <!-- PWA -->
     <link rel="manifest" href="manifest.json" />
@@ -21,7 +26,6 @@
       <button class="active" onclick="showMenu('breakfast', this)">
         Breakfast
       </button>
-
       <button onclick="showMenu('gastro-signature', this)">
         GASTRO Signature
       </button>
@@ -255,30 +259,50 @@
       let startX;
       let scrollLeft;
 
-      categoriesContainer.addEventListener("mousedown", (e) => {
-        isDown = true;
-        categoriesContainer.style.cursor = "grabbing";
-        startX = e.pageX - categoriesContainer.offsetLeft;
-        scrollLeft = categoriesContainer.scrollLeft;
-      });
+      if (categoriesContainer) {
+        categoriesContainer.addEventListener("mousedown", (e) => {
+          isDown = true;
+          categoriesContainer.style.cursor = "grabbing";
+          startX = e.pageX - categoriesContainer.offsetLeft;
+          scrollLeft = categoriesContainer.scrollLeft;
+        });
 
-      categoriesContainer.addEventListener("mouseleave", () => {
-        isDown = false;
-        categoriesContainer.style.cursor = "grab";
-      });
+        categoriesContainer.addEventListener("mouseleave", () => {
+          isDown = false;
+          categoriesContainer.style.cursor = "grab";
+        });
 
-      categoriesContainer.addEventListener("mouseup", () => {
-        isDown = false;
-        categoriesContainer.style.cursor = "grab";
-      });
+        categoriesContainer.addEventListener("mouseup", () => {
+          isDown = false;
+          categoriesContainer.style.cursor = "grab";
+        });
 
-      categoriesContainer.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - categoriesContainer.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll speed multiplier
-        categoriesContainer.scrollLeft = scrollLeft - walk;
-      });
+        categoriesContainer.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - categoriesContainer.offsetLeft;
+          const walk = (x - startX) * 2; // Scroll speed multiplier
+          categoriesContainer.scrollLeft = scrollLeft - walk;
+        });
+
+        // Touch support for mobile
+        categoriesContainer.addEventListener("touchstart", (e) => {
+          isDown = true;
+          startX = e.touches[0].pageX - categoriesContainer.offsetLeft;
+          scrollLeft = categoriesContainer.scrollLeft;
+        });
+
+        categoriesContainer.addEventListener("touchend", () => {
+          isDown = false;
+        });
+
+        categoriesContainer.addEventListener("touchmove", (e) => {
+          if (!isDown) return;
+          const x = e.touches[0].pageX - categoriesContainer.offsetLeft;
+          const walk = (x - startX) * 2;
+          categoriesContainer.scrollLeft = scrollLeft - walk;
+        });
+      }
 
       function showMenu(categoryClass, button) {
         // Remove active class from all sections and buttons
@@ -299,7 +323,7 @@
         } else {
           console.error("Menu section not found:", categoryClass);
         }
-        button.classList.add("active");
+        if (button) button.classList.add("active");
       }
 
       // Register service worker for offline support

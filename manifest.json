@@ -1,0 +1,17 @@
+{
+  "name": "GASTRO 130 Digital Menu",
+  "short_name": "GASTRO Menu",
+  "description": "Digital menu for GASTRO 130 Restaurant & Bar",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a0000",
+  "theme_color": "#111111",
+  "icons": [
+    {
+      "src": "images/Menu-Cover.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

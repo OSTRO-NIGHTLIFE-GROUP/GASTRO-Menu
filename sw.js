@@ -1,10 +1,10 @@
-const CACHE_NAME = "gastro-menu-v2";
+const CACHE_NAME = "gastro-menu-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./style.css",
-  "./images/breakfast-1.webp",
-  "./images/breakfast-2.webp",
+  "./images/breakfast (1).webp",
+  "./images/breakfast (2).webp",
 ];
 
 // Install event - cache essential assets

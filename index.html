@@ -187,6 +187,23 @@
       if (breakfastSection) {
         breakfastSection.classList.add("active");
       }
+
+      // Hide categories on scroll down, show on scroll up
+      let lastScrollTop = 0;
+      const categoriesContainer = document.getElementById("categories");
+      if (categoriesContainer) {
+        window.addEventListener("scroll", function() {
+          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+          if (currentScroll > lastScrollTop && currentScroll > 50) {
+            // Downscroll
+            categoriesContainer.classList.add("hidden");
+          } else {
+            // Upscroll
+            categoriesContainer.classList.remove("hidden");
+          }
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        }, false);
+      }
     });
   </script>
 </body>

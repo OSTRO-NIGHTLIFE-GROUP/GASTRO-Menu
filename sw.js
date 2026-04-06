@@ -1,4 +1,4 @@
-const CACHE_NAME = "gastro-menu-v8";
+const CACHE_NAME = "gastro-menu-v10";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

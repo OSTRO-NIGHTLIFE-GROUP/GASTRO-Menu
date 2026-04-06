@@ -188,10 +188,20 @@
         breakfastSection.classList.add("active");
       }
 
-      // Hide categories on scroll down, show on scroll up
+      // Interactive category hide/show logic
       let lastScrollTop = 0;
       const categoriesContainer = document.getElementById("categories");
       if (categoriesContainer) {
+        
+        // Toggle categories visibility when touching/clicking anywhere on the screen
+        document.addEventListener("click", function(e) {
+          // Do not toggle if the user is just clicking inside the empty area of the categories bar
+          if (e.target.id === "categories") return;
+          
+          categoriesContainer.classList.toggle("hidden");
+        });
+
+        // Hide categories on scroll down, show on scroll up
         window.addEventListener("scroll", function() {
           let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
           if (currentScroll > lastScrollTop && currentScroll > 50) {

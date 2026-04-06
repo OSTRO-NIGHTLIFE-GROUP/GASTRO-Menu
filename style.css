@@ -32,8 +32,9 @@ header {
 /* ===== Category Buttons ===== */
 .categories {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
   gap: 8px 10px;
   padding: 14px 16px;
   background: rgba(26, 0, 0, 0.85);
@@ -51,6 +52,11 @@ header {
   user-select: none;
   width: 100%;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  scroll-behavior: smooth;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
 }
 
 .categories.hidden {
@@ -118,6 +124,6 @@ header {
 
   .categories button {
     font-size: 13px;
-    padding: 8px 14px;
+    padding: 8px 10px;
   }
 }

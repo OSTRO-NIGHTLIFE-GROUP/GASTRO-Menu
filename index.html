@@ -193,10 +193,35 @@
       const categoriesContainer = document.getElementById("categories");
       if (categoriesContainer) {
         
+        // Mouse drag horizontal scrolling for desktop
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        categoriesContainer.addEventListener("mousedown", (e) => {
+          isDown = true;
+          startX = e.pageX - categoriesContainer.offsetLeft;
+          scrollLeft = categoriesContainer.scrollLeft;
+        });
+        categoriesContainer.addEventListener("mouseleave", () => {
+          isDown = false;
+        });
+        categoriesContainer.addEventListener("mouseup", () => {
+          isDown = false;
+        });
+        categoriesContainer.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - categoriesContainer.offsetLeft;
+          const walk = (x - startX) * 2;
+          categoriesContainer.scrollLeft = scrollLeft - walk;
+        });
+
         // Toggle categories visibility when touching/clicking anywhere on the screen
         document.addEventListener("click", function(e) {
           // Do not toggle if the user is just clicking inside the empty area of the categories bar
-          if (e.target.id === "categories") return;
+          // Also ignore if they are dragging (isDown true)
+          if (e.target.id === "categories" || isDown) return;
           
           categoriesContainer.classList.toggle("hidden");
         });

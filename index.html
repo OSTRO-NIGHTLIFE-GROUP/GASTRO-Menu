@@ -38,6 +38,7 @@
 
     <button onclick="showMenu('soups', this)">Soups</button>
     <button onclick="showMenu('desserts', this)">Desserts</button>
+    <button onclick="showMenu('foodbox', this)">Foodbox</button>
 
     <button onclick="showMenu('drinks', this)">Drinks</button>
   </div>
@@ -119,6 +120,12 @@
     <img src="images/desserts.webp" loading="lazy" alt="Desserts Menu" />
   </div>
 
+  <div class="menu-image foodbox">
+    <img src="images/Foodbox (1).webp" loading="lazy" alt="Foodbox Menu" />
+    <img src="images/Foodbox (2).webp" loading="lazy" alt="Foodbox Menu" />
+  </div>
+
+
   <!-- Promotion Section -->
   <div class="menu-image promotion active">
     <img src="images/HappyHour.webp" loading="lazy" alt="Happy Hour" />
@@ -192,12 +199,12 @@
       let lastScrollTop = 0;
       const categoriesContainer = document.getElementById("categories");
       if (categoriesContainer) {
-        
+
         // Mouse drag horizontal scrolling for desktop
         let isDown = false;
         let startX;
         let scrollLeft;
-        
+
         categoriesContainer.addEventListener("mousedown", (e) => {
           isDown = true;
           startX = e.pageX - categoriesContainer.offsetLeft;
@@ -218,16 +225,16 @@
         });
 
         // Toggle categories visibility when touching/clicking anywhere on the screen
-        document.addEventListener("click", function(e) {
+        document.addEventListener("click", function (e) {
           // Do not toggle if the user is just clicking inside the empty area of the categories bar
           // Also ignore if they are dragging (isDown true)
           if (e.target.id === "categories" || isDown) return;
-          
+
           categoriesContainer.classList.toggle("hidden");
         });
 
         // Hide categories on scroll down, show on scroll up
-        window.addEventListener("scroll", function() {
+        window.addEventListener("scroll", function () {
           let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
           if (currentScroll > lastScrollTop && currentScroll > 50) {
             // Downscroll

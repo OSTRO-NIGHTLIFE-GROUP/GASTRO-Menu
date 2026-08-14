@@ -53,7 +53,7 @@
       <button onclick="showMenu('drinks', this)">Beer & Drinks</button>
     </div>
 
-    <!-- Promotion Section -->
+    <!-- Anniversary Section -->
     <div class="menu-image anniversary active">
       <img src="images/anniversary (1).webp" loading="lazy" alt="Happy Hour" />
       <img src="images/anniversary (2).webp" loading="lazy" alt="Happy Hour" />
@@ -400,15 +400,7 @@
         });
       }
 
-      // Initialize breakfast menu on load
       window.addEventListener("DOMContentLoaded", () => {
-        const breakfastSection = document.querySelector(
-          ".menu-image.promotion",
-        );
-        if (breakfastSection) {
-          breakfastSection.classList.add("active");
-        }
-
         // Interactive category hide/show logic
         let lastScrollTop = 0;
         const categoriesContainer = document.getElementById("categories");
